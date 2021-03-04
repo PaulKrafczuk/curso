@@ -1,33 +1,58 @@
 'use strict'
-function intervalo() {
-    var tiempo = setInterval(() => {
-        console.log('set interval')
 
-        var encabezado = document.querySelector("h1")
+window.addEventListener('load', function () {
 
-        if (encabezado.style.background == 'green') {
-            encabezado.style.background = 'red';
-        } else {
-            encabezado.style.background = 'green';
-        }
+    //var intervalo = setInterval(tiempo, 500);
 
-    }, 500)
 
-    return tiempo;
-};
 
-var tiempo = intervalo();
+    /* function tiempo() {
+         console.log('set interval')
+ 
+         var encabezado = document.querySelector("h1")
+ 
+         if (encabezado.style.background == 'green') {
+             encabezado.style.background = 'red';
+         } else {
+             encabezado.style.background = 'green';
+         }
+         return tiempo;
+     };*/
 
-var stop = document.querySelector('#stop');
+    function intervalo() {
+        var tiempo = setInterval(() => {
+            console.log('set interval')
 
-stop.addEventListener('click', function () {
-    alert('Has parado el parpadeo')
-    clearInterval(tiempo);
-});
+            var encabezado = document.querySelector("h1")
 
-var start = document.querySelector('#start')
+            if (encabezado.style.background == 'green') {
+                encabezado.style.background = 'red';
+            } else {
+                encabezado.style.background = 'green';
+            }
 
-start.addEventListener('click', () => {
-alert('Has iniciado el parpadeo');
-    intervalo();
+        }, 500)
+
+        return tiempo;
+    };
+
+    var tiempo = intervalo();
+
+    var stop = document.querySelector('#stop');
+
+    stop.addEventListener('click', function () {
+        //alert('Has parado el parpadeo')
+        console.log('detiene parpadeo')
+        clearInterval(tiempo);
+    });
+
+    var start = document.querySelector('#start')
+
+    start.addEventListener('click', function () {
+        //alert('Has iniciado el parpadeo');
+        console.log('inicio de parpadeo')
+        intervalo();
+    });
+
+
 });
